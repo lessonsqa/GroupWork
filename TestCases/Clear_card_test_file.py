@@ -7,7 +7,7 @@ from Src.Pages.Navigation_bar_file import NavigationBarClass
 from Src.Pages.Cart_page_file import CartPageClass
 
 
-class SignIn(BaseTestClass):
+class ClearCart(BaseTestClass):
     def setUp(self):
         self.signInPageObj = SignInPageClass(self.driver)
         self.navigationBarObj = NavigationBarClass(self.driver)
