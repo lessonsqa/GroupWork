@@ -1,12 +1,12 @@
 import time
 import unittest
-from Src.Pages.Main_page_file import MainPageClass
+from Src.Pages.Navigation_bar_file import NavigationBarClass
 from TestCases.Base_test_file import BaseTestClass
 
 
 class SearchFunctionality(BaseTestClass):
     def setUp(self):
-        self.mainPageObj = MainPageClass(self.driver)
+        self.mainPageObj = NavigationBarClass(self.driver)
 
     def test_amazon_search_functionality(self):
         self.driver.get("https://www.amazon.com")
