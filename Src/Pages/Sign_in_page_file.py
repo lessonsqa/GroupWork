@@ -1,21 +1,23 @@
-from Common.Find import Custom_find_file
+import time
 from selenium.webdriver.common.by import By
+from Common.Variables.Variables_file import VariablesClass
+from Src.Pages.Base_page_file import BasePageClass
 
-class SignInPageClass():
+
+class SignInPageClass(BasePageClass):
     def __init__(self, driver):
-        self.driver = driver
-        self.find = Custom_find_file.CustomFind(driver)
+        super().__init__(driver)
         self.locators = SignInPageLocatorsClass()
 
-    def fill_username_field(self, userName="lessons.qa@gmail.com"):
+    def fill_username_field(self, user_name=VariablesClass.get_username()):
         userNameTextBoxElement = self.find.custom_find_element(self.locators.userNameTextFieldLocator)
-        userNameTextBoxElement.send_keys(userName)
+        userNameTextBoxElement.send_keys(user_name)
 
     def click_into_continue_button(self):
         continueButtonElement = self.find.custom_find_element(self.locators.continueButtonLocator)
         continueButtonElement.click()
 
-    def fill_password_field(self, password="2357111317"):
+    def fill_password_field(self, password=VariablesClass.get_password()):
         passwordTextBoxElement = self.find.custom_find_element(self.locators.passwordTextFieldLocator)
         passwordTextBoxElement.send_keys(password)
 
@@ -27,13 +29,28 @@ class SignInPageClass():
         keepMeSignedInElement = self.find.custom_find_element(self.locators.keepMeSignedInLocator)
         keepMeSignedInElement.click()
 
+    def fast_sign_in(self, username=VariablesClass.get_username(), password=VariablesClass.get_password()):
+        """
+        Opens Amazon.com sign in page and singes in.
+        We can specify a username and password, otherwise the default values will be used.
+        """
+        self.driver.get(VariablesClass.amazonSignInUrl)
+        # username
+        self.fill_username_field(username)
+        time.sleep(2)  # added to not get robot check
+        self.click_into_continue_button()
+        # password
+        self.fill_password_field(password)
+        time.sleep(2)  # added to not get robot check
+        self.click_into_sign_in_button()
 
-class SignInPageLocatorsClass():
-    #Username Part
+
+class SignInPageLocatorsClass:
+    # Username Part
     userNameTextFieldLocator = (By.ID, "ap_email")
     continueButtonLocator = (By.ID, "continue")
 
-    #Password Part
+    # Password Part
     passwordTextFieldLocator = (By.ID, "ap_password")
     signInButtonLocator = (By.ID, "signInSubmit")
     keepMeSignedInLocator = (By.NAME, "rememberMe")
