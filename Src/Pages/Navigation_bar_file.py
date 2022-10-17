@@ -21,7 +21,7 @@ class NavigationBarClass(BasePageClass):
         cartButtonElement = self.find.custom_find_element(self.locators.cartButtonLocator)
         cartButtonElement.click()
 
-    def get_cart_number(self):
+    def get_cart_products_quantity(self):
         cartButtonElement = self.find.custom_find_element(self.locators.cartButtonLocator)
         return int(cartButtonElement.text)
 
