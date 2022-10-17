@@ -3,10 +3,10 @@ from Src.Pages.Base_page_file import BasePageClass
 from Common.Variables.Variables_file import VariablesClass
 
 
-class MainPageClass(BasePageClass):
+class NavigationBarClass(BasePageClass):
     def __init__(self, driver):
         super().__init__(driver)
-        self.locators = MainPageLocatorsClass()
+        self.locators = NavigationBarLocatorsClass()
 
     def fill_in_search_field(self, text=VariablesClass.searchText):
         searchField = self.find.custom_find_element(self.locators.searchFieldLocator)
@@ -26,7 +26,7 @@ class MainPageClass(BasePageClass):
         return int(cartButtonElement.text)
 
 
-class MainPageLocatorsClass:
+class NavigationBarLocatorsClass:
     searchFieldLocator = (By.ID, "twotabsearchtextbox")
     submitButton = (By.ID, "nav-search-submit-button")
     cartButtonLocator = (By.ID, "nav-cart-count")

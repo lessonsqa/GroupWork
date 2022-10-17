@@ -7,6 +7,7 @@ class SearchResultsPageClass(BasePageClass):
         super().__init__(driver)
         self.locators = SearchResultsLocatorsClass()
 
+
     def click_on_nth_item(self, n: int = 1):
         foundElements = self.find.custom_find_elements(self.locators.foundItemsLocator)
         foundItemElement = foundElements[n//2 + n]
@@ -14,5 +15,4 @@ class SearchResultsPageClass(BasePageClass):
 
 
 class SearchResultsLocatorsClass:
-    foundItemsLocator = (By.CSS_SELECTOR,
-                         ".a-link-normal.s-underline-text.s-underline-link-text.s-link-style.a-text-normal")
+    foundItemsLocator = (By.CSS_SELECTOR, ".a-link-normal.s-underline-text.s-underline-link-text.s-link-style.a-text-normal")
