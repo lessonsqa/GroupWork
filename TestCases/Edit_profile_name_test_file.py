@@ -10,7 +10,7 @@ from Src.Pages.Edit_profile_name_page_file import EditProfileNamePageClass
 from webdrivermanager.chrome import ChromeDriverManager
 from TestCases.Base_test_file import BaseTestClass
 
-class SignIn(BaseTestClass):
+class EditProfileName(BaseTestClass):
     def setUp(self):
         self.signInPageObj = SignInPageClass(self.driver)
         self.editProfileNameObj = EditProfileNamePageClass(self.driver)

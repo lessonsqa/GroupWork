@@ -10,7 +10,7 @@ class SearchFunctionality(BaseTestClass):
 
     def test_amazon_search_functionality(self):
         self.driver.get("https://www.amazon.com")
- #       self.assertIn("Amazon.com. Spend less. Smile more.", self.driver.title)
+        # self.assertIn("Amazon.com. Spend less. Smile more.", self.driver.title)
 
         self.mainPageObj.fill_in_search_field()
         self.mainPageObj.click_into_submit_button()

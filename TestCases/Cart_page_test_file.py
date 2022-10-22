@@ -10,6 +10,7 @@ from TestCases.Base_test_file import BaseTestClass
 from Src.Pages.Item_page_file import ItemPageClass
 from Src.Pages.Navigation_bar_file import NavigationBarClass
 
+
 class DeleteItems(BaseTestClass):
     def setUp(self):
         self.deleteItemsPageObj = CartPageClass(self.driver)

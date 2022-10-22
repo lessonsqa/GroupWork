@@ -11,12 +11,10 @@ from webdrivermanager.chrome import ChromeDriverManager
 from TestCases.Base_test_file import BaseTestClass
 
 
-
 class AddItems(BaseTestClass):
     def setUp(self):
         self.addItemsPageObj = ItemPageClass(self.driver)
         self.signInPageObj = SignInPageClass(self.driver)
-
 
     def test_amazon_add_items(self):
         self.driver.get(VariablesClass.amazonSignInUrl)
@@ -30,9 +28,6 @@ class AddItems(BaseTestClass):
         self.signInPageObj.check_to_keep_me_signed_in_checkbox()
         time.sleep(2)  # added to not get robot check
         self.signInPageObj.click_into_sign_in_button()
-
-
-
 
         # select & add first item
         self.addItemsPageObj.select_item()
